@@ -13,3 +13,4 @@ dist/
 .env.local
 .env.production
 backend/venv/
+backend/.env
