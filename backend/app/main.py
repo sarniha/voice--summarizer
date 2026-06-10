@@ -1,9 +1,18 @@
-from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi import FastAPI, UploadFile, File, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from app.services.transcription import transcribe_audio
 from app.services.summarization import summarize_transcript
 
 app = FastAPI()
+
+@app.middleware("http")
+async def add_cors_headers(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "*"
+    return response
 
 app.add_middleware(
     CORSMiddleware,
@@ -11,24 +20,3 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-@app.get("/")
-def health_check():
-    return {"status": "server is running"}
-
-@app.post("/upload-audio")
-async def upload_audio(file: UploadFile = File(...)):
-    if not file.filename.endswith((".mp3", ".wav", ".m4a", ".webm", ".ogg")):
-        raise HTTPException(status_code=400, detail="Invalid file type. Upload an audio file.")
-    
-    try:
-        contents = await file.read()
-        transcript = await transcribe_audio(contents, file.filename)
-        summary = await summarize_transcript(transcript)
-        return {
-            "filename": file.filename,
-            "transcript": transcript,
-            "summary": summary
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
