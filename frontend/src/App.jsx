@@ -43,7 +43,8 @@ export default function App() {
     formData.append("file", audioBlob, filename)
     try {
       const response = await axios.post(
-  `${import.meta.env.VITE_API_URL}/upload-audio`,
+    "https://voice-summarizer-production.up.railway.app/upload-audio",
+
   formData,
   { headers: { "Content-Type": "multipart/form-data" } }
 )
