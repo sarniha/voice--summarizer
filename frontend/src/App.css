@@ -415,3 +415,145 @@ h1 em {
   height: 1px;
   background: var(--border);
 }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+nav { display: flex; gap: 10px; }
+
+.nav-btn {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #333;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+.nav-btn:hover { background: #1a1a1a; color: #fff; transform: none; }
+
+.result-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.delete-btn {
+  background: transparent;
+  color: #ff4444;
+  border: 1px solid #ff4444;
+  padding: 10px 20px;
+}
+
+.delete-btn:hover { background: #ff444422; transform: none; }
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fade-in 0.4s ease;
+}
+
+.history-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+  transition: border-color 0.2s;
+}
+
+.history-card:hover { border-color: #333; }
+
+.history-card-content {
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.history-filename {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.history-summary {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+.history-date {
+  font-size: 0.78rem;
+  color: #555;
+}
+.top-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.nav-btn {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #2a2a2a;
+  padding: 8px 16px;
+  font-size: 0.82rem;
+  border-radius: 6px;
+}
+
+.nav-btn:hover { background: #1a1a1a; color: #fff; transform: none; }
+
+.result-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-delete {
+  background: transparent;
+  color: #ff4444;
+  border: 1px solid #ff4444;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-delete:hover { background: #ff444415; transform: none; }
+.btn-delete.icon-only { padding: 10px 14px; }
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fade-in 0.4s ease;
+}
+
+.history-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #1a1a1a;
+  border-radius: 10px;
+  padding: 18px;
+  transition: border-color 0.2s;
+}
+
+.history-card:hover { border-color: #333; }
+
+.history-card-content {
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.history-filename { font-size: 0.8rem; color: #666; }
+.history-summary { font-size: 0.95rem; color: #ddd; }
+.history-date { font-size: 0.75rem; color: #444; }
